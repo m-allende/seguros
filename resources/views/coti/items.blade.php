@@ -84,9 +84,9 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary btn-save-item">Guardar</button>
-                <button type="button" class="btn btn-sm btn-primary btn-update-item">Actualizar</button>
-                <button type="button" class="btn btn-sm btn-secondary close-modal-item">Cerrar</button>
+                <button type="button" class="btn btn-sm btn-primary btn-save-item">@lang('translation.save')</button>
+                <button type="button" class="btn btn-sm btn-primary btn-update-item">@lang('translation.update')</button>
+                <button type="button" class="btn btn-sm btn-secondary close-modal-item">@lang('translation.close')</button>
             </div>
         </div>
     </div>

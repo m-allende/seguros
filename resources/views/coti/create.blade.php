@@ -58,133 +58,109 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="button" class="btn btn-primary btn-next">Aceptar</button>
-                    <button type="button" class="btn btn-secondary">Cancelar</button>
+                    <button type="button" class="btn btn-sm btn-primary btn-next">Aceptar</button>
+                    <button type="button" class="btn btn-sm btn-secondary">Cancelar</button>
                 </div>
             </div>
         </div>
 
         <div id="divCoti2">
+            <h2>Crear Cotización</h2>
             <div class="row mb-3">
+                <div class="col-4">
+                    <div>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-sm btn-danger"> <i class="fa-solid fa-door-open"></i>
+                                Volver</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="text-center">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-sm btn-primary"> <i class="fa-solid fa-print"></i>
+                                Imprimir</button>
+                            <button type="button" class="btn btn-sm btn-success"> <i
+                                    class="fa-regular fa-floppy-disk"></i>
+                                Grabar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="text-end">
+                        <div class="btn-group" role="group">
+                            <button id="btn-first" type="button" class="btn btn-sm btn-primary"><i
+                                    class="fa-solid fa-backward-fast"></i>
+                                Inicio </button>
+                            <button id="btn-previus" type="button" class="btn btn-sm btn-primary"><i
+                                    class="fa-solid fa-backward"></i>
+                                Anterior</button>
+                            <button id="btn-next" type="button" class="btn btn-sm btn-primary">Siguiente <i
+                                    class="fa-solid fa-forward"></i></button>
+                            <button id="btn-last" type="button" class="btn btn-sm btn-primary">Fin <i
+                                    class="fa-solid fa-forward-fast"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-2">
                 <div class="col-md-12">
-                    <h2>Crear Cotización</h2>
+
                     <ul class="nav nav-pills" id="animateLine" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="animated-underline-general-tab" data-bs-toggle="tab"
+                            <button class="nav-link active" id="tab-0" data-bs-toggle="tab"
                                 href="#animated-underline-general" role="tab"
-                                aria-controls="animated-underline-general" aria-selected="true"><svg viewBox="0 0 24 24"
-                                    width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg> Información General</button>
+                                aria-controls="animated-underline-general" aria-selected="true"><i
+                                    class="fa-solid fa-house"></i> Información General</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="animated-underline-participant-tab" data-bs-toggle="tab"
+                            <button class="nav-link" id="tab-1" data-bs-toggle="tab"
                                 href="#animated-underline-participant" role="tab"
-                                aria-controls="animated-underline-participant" aria-selected="false" tabindex="-1"><svg
-                                    viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
-                                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                    class="css-i6dzq1">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg> Participantes</button>
+                                aria-controls="animated-underline-participant" aria-selected="false"
+                                tabindex="-1"><i class="fa-solid fa-users"></i> Participantes</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="animated-underline-intermediary-tab" data-bs-toggle="tab"
+                            <button class="nav-link" id="tab-2" data-bs-toggle="tab"
                                 href="#animated-underline-intermediary" role="tab"
                                 aria-controls="animated-underline-intermediary" aria-selected="false"
-                                tabindex="-1"><svg viewBox="0 0 24 24" width="24" height="24"
-                                    stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" class="css-i6dzq1">
-                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="8.5" cy="7" r="4"></circle>
-                                    <polyline points="17 11 19 13 23 9"></polyline>
-                                </svg> Intermediarios</button>
+                                tabindex="-1"><i class="fa-solid fa-user-tie"></i> Intermediarios</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="animated-underline-item-tab" data-bs-toggle="tab"
+                            <button class="nav-link" id="tab-3" data-bs-toggle="tab"
                                 href="#animated-underline-item" role="tab"
-                                aria-controls="animated-underline-item" aria-selected="false" tabindex="-1"><svg
-                                    viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
-                                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                    class="css-i6dzq1">
-                                    <path
-                                        d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
-                                    </path>
-                                    <line x1="12" y1="11" x2="12" y2="17">
-                                    </line>
-                                    <line x1="9" y1="14" x2="15" y2="14">
-                                    </line>
-                                </svg> Items</button>
+                                aria-controls="animated-underline-item" aria-selected="false" tabindex="-1"><i
+                                    class="fa-solid fa-dumpster-fire"></i>
+                                Items</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="animated-underline-coverage-tab" data-bs-toggle="tab"
+                            <button class="nav-link" id="tab-4" data-bs-toggle="tab"
                                 href="#animated-underline-coverage" role="tab"
-                                aria-controls="animated-underline-coverage" aria-selected="false" tabindex="-1"><svg
-                                    viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
-                                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                    class="css-i6dzq1">
-                                    <line x1="21" y1="10" x2="3" y2="10">
-                                    </line>
-                                    <line x1="21" y1="6" x2="3" y2="6">
-                                    </line>
-                                    <line x1="21" y1="14" x2="3" y2="14">
-                                    </line>
-                                    <line x1="21" y1="18" x2="3" y2="18">
-                                    </line>
-                                </svg> Resumen Coberturas</button>
+                                aria-controls="animated-underline-coverage" aria-selected="false" tabindex="-1"><i
+                                    class="fa-solid fa-list-check"></i> Resumen Coberturas</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="animated-underline-deductible-tab" data-bs-toggle="tab"
+                            <button class="nav-link" id="tab-5" data-bs-toggle="tab"
                                 href="#animated-underline-deductible" role="tab"
-                                aria-controls="animated-underline-deductible" aria-selected="false"
-                                tabindex="-1"><svg viewBox="0 0 24 24" width="24" height="24"
-                                    stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" class="css-i6dzq1">
-                                    <line x1="8" y1="6" x2="21" y2="6">
-                                    </line>
-                                    <line x1="8" y1="12" x2="21" y2="12">
-                                    </line>
-                                    <line x1="8" y1="18" x2="21" y2="18">
-                                    </line>
-                                    <line x1="3" y1="6" x2="3.01" y2="6">
-                                    </line>
-                                    <line x1="3" y1="12" x2="3.01" y2="12">
-                                    </line>
-                                    <line x1="3" y1="18" x2="3.01" y2="18">
-                                    </line>
-                                </svg> Resumen Deducibles</button>
+                                aria-controls="animated-underline-deductible" aria-selected="false" tabindex="-1"><i
+                                    class="fa-solid fa-list-ul"></i> Resumen Deducibles</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="animated-underline-payment-tab" data-bs-toggle="tab"
+                            <button class="nav-link" id="tab-6" data-bs-toggle="tab"
                                 href="#animated-underline-payment" role="tab"
-                                aria-controls="animated-underline-payment" aria-selected="false" tabindex="-1"><svg
-                                    viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
-                                    stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                                    class="css-i6dzq1">
-                                    <line x1="12" y1="1" x2="12" y2="23">
-                                    </line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                </svg> Pagos</button>
+                                aria-controls="animated-underline-payment" aria-selected="false" tabindex="-1"><i
+                                    class="fa-solid fa-dollar-sign"></i> Pagos</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="animated-underline-observation-tab" data-bs-toggle="tab"
+                            <button class="nav-link" id="tab-7" data-bs-toggle="tab"
                                 href="#animated-underline-observation" role="tab"
                                 aria-controls="animated-underline-observation" aria-selected="false"
-                                tabindex="-1"><svg viewBox="0 0 24 24" width="24" height="24"
-                                    stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" class="css-i6dzq1">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13">
-                                    </line>
-                                    <line x1="16" y1="17" x2="8" y2="17">
-                                    </line>
-                                    <polyline points="10 9 9 9 8 9"></polyline>
-                                </svg> Observaciones</button>
+                                tabindex="-1"><i class="fa-regular fa-file-lines"></i> Observaciones</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab-8" data-bs-toggle="tab"
+                                href="#animated-underline-document" role="tab"
+                                aria-controls="animated-underline-document" aria-selected="false" tabindex="-1"><i
+                                    class="fa-solid fa-file-import"></i> Documentos</button>
                         </li>
                     </ul>
                 </div>
@@ -192,7 +168,7 @@
 
             <div class="tab-content" id="animateLineContent-4">
                 <div class="tab-pane fade show active" id="animated-underline-general" role="tabpanel"
-                    aria-labelledby="animated-underline-general-tab">
+                    aria-labelledby="tab-0">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                             <form class="section general-info">
@@ -208,7 +184,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade show" id="animated-underline-participant" role="tabpanel"
-                    aria-labelledby="animated-underline-participant-tab">
+                    aria-labelledby="tab-1">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                             <form class="section participant-info">
@@ -224,7 +200,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade show" id="animated-underline-intermediary" role="tabpanel"
-                    aria-labelledby="animated-underline-intermediary-tab">
+                    aria-labelledby="tab-2">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                             <form class="section intermediary-info">
@@ -240,7 +216,7 @@
                     </div>
                 </div>
                 <div class="tab-pane fade show" id="animated-underline-item" role="tabpanel"
-                    aria-labelledby="animated-underline-item-tab">
+                    aria-labelledby="tab-3">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                             <form class="section item-info">
@@ -257,7 +233,7 @@
                 </div>
 
                 <div class="tab-pane fade show" id="animated-underline-coverage" role="tabpanel"
-                    aria-labelledby="animated-underline-coverage-tab">
+                    aria-labelledby="tab-4">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                             <form class="section coverage-info">
@@ -274,7 +250,7 @@
                 </div>
 
                 <div class="tab-pane fade show" id="animated-underline-deductible" role="tabpanel"
-                    aria-labelledby="animated-underline-deductible-tab">
+                    aria-labelledby="tab-5">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                             <form class="section deductible-info">
@@ -291,7 +267,7 @@
                 </div>
 
                 <div class="tab-pane fade show" id="animated-underline-payment" role="tabpanel"
-                    aria-labelledby="animated-underline-payment-tab">
+                    aria-labelledby="tab-6">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                             <form class="section payment-info">
@@ -308,7 +284,7 @@
                 </div>
 
                 <div class="tab-pane fade show" id="animated-underline-observation" role="tabpanel"
-                    aria-labelledby="animated-underline-observation-tab">
+                    aria-labelledby="tab-7">
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
                             <form class="section observation-info">
@@ -324,29 +300,49 @@
                     </div>
                 </div>
 
+                <div class="tab-pane fade show" id="animated-underline-document" role="tabpanel"
+                    aria-labelledby="tab-8">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                            <form class="section document-info">
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="card">
+                                            @include('coti.document')
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div id="modal-person" class="modal" tabindex="-1" role="dialog" data-bs-backdrop="static"
-                data-bs-keyboard="false" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-person" role="document">
-                    <div class="modal-content modal-content-light">
-                        <div class="modal-header">
-                            <h5 class="modal-title modal-title-person"></h5>
-                            <button type="button" class="btn-close close-modal-person" data-bs-dismiss="modal"
-                                aria-label="Close">
-                                <svg> ... </svg>
-                            </button>
-                        </div>
-                        <div class="modal-body modal-body-fix modal-body-person">
 
-                        </div>
-                        <div class="modal-footer">
-                            <input type="hidden" name="optionTypePerson" id="optionTypePerson" value="">
-                            <button type="button" class="btn btn-sm btn-primary btn-save-person">Guardar</button>
-                            <button type="button"
-                                class="btn btn-sm btn-primary btn-update-person">Actualizar</button>
-                            <button type="button" class="btn btn-sm btn-secondary close-modal-person">Cerrar</button>
-                        </div>
+        </div>
+
+        <div id="modal-person" class="modal" tabindex="-1" role="dialog" data-bs-backdrop="static"
+            data-bs-keyboard="false" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-person" role="document">
+                <div class="modal-content modal-content-light">
+                    <div class="modal-header">
+                        <h5 class="modal-title modal-title-person"></h5>
+                        <button type="button" class="btn-close close-modal-person" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <svg> ... </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-body-fix modal-body-person">
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="optionTypePerson" id="optionTypePerson" value="">
+                        <button type="button"
+                            class="btn btn-sm btn-primary btn-save-person">@lang('translation.save')</button>
+                        <button type="button"
+                            class="btn btn-sm btn-primary btn-update-person">@lang('translation.update')</button>
+                        <button type="button"
+                            class="btn btn-sm btn-secondary close-modal-person">@lang('translation.close')</button>
                     </div>
                 </div>
             </div>
@@ -360,7 +356,36 @@
         <script src="{{ asset('plugins/input-mask/jquery.inputmask.bundle.min.js') }}"></script>
         <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
         <script>
-            var table = $('#items').DataTable({
+            let tab = 0;
+
+            $(document).ready(function() {
+                changeTab();
+            })
+
+            $(document).on("click", "#btn-first", function(event) {
+                tab = 0;
+                changeTab();
+            });
+            $(document).on("click", "#btn-last", function(event) {
+                tab = 8;
+                changeTab();
+            });
+            $(document).on("click", "#btn-next", function(event) {
+                tab == 8 ? tab = tab : tab++;
+                changeTab();
+            });
+            $(document).on("click", "#btn-previus", function(event) {
+                tab == 0 ? tab = tab : tab--;
+                changeTab();
+            });
+
+            function changeTab() {
+                $('#tab-' + tab).click()
+                $("#btn-previus, #btn-first").prop("disabled", tab == 0);
+                $("#btn-last, #btn-next").prop("disabled", tab == 8);
+            }
+
+            let table = $('#items').DataTable({
                 language: {
                     url: "{{ asset('plugins/table/datatable/es-ES.json') }}",
                 },

@@ -28,9 +28,11 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class
         ]);
 
+        /*
         $this->call([
             PermissionSeeder::class
         ]);
+        */
 
         $this->call([
             RegionSeeder::class
@@ -38,6 +40,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CodeSeeder::class
+        ]);
+
+        $this->call([
+            MenuSeeder::class
+        ]);
+
+        $this->call([
+            NewPermissionSeeder::class
         ]);
     }
 }

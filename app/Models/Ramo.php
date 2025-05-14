@@ -24,4 +24,13 @@ class Ramo extends Model implements Auditable
         return $this->belongsTo(Code::class);
     }
 
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class, 'company_ramo')
+                    ->withTimestamps()
+                    ->withPivot('deleted_at')
+                    ->wherePivotNull('deleted_at')
+                    ->whereNull('companies.deleted_at'); // opcional: evita compañias eliminadas
+    }
+
 }

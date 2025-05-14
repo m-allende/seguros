@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="type_id">Tipo</label><br>
+        <label for="type_id">@lang('translation.type')</label><br>
         <select name="type_id" id="type_id"
             class=" form-select form-control form-control-sm select2-type-vehicle-modal w-100">
         </select>
@@ -109,7 +109,7 @@
 </div>
 <script>
     $(".select2-type-vehicle-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;
@@ -146,7 +146,7 @@
         },
     });
     $(".select2-branch-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;
@@ -183,7 +183,7 @@
         },
     });
     $(".select2-model-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;
@@ -221,7 +221,7 @@
         },
     });
     $(".select2-color-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;
@@ -258,7 +258,7 @@
         },
     });
     $(".select2-use-vehicle-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;

@@ -41,15 +41,20 @@ class CompanyController extends Controller
                                 $query->with(["type"]);
                             }, "photo", "type"])
                             ->where(function ($query) {
-                            if (request()->has('search') && !is_array(request()->search)) {
-                                $query->where('name', 'like', "%" . request('search') . "%");
-                            }
-                        })->get();
+                                if (request()->has('search') && !is_array(request()->search)) {
+                                    $query->where('name', 'like', "%" . request('search') . "%");
+                                }
+                            })
+                            ->where(function ($query) use($request){
+                                if($request->select2 != null){
+                                    $query->whereNull('deleted_at');
+                                }
+                            })->get();
 
             return datatables()->of($values)->toJson();
         }
 
-        return view('config.company', ["title" => "Compañias"]);
+        return view('config.company');
     }
 
     /**

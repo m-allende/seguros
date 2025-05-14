@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ramo;
-use App\Models\Company;
+use App\Models\Deductible;
 use Illuminate\Http\Request;
 
 use App\Models\Notification;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
-use App\Exports\RamoExport;
+use App\Exports\DeductibleExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Events\ExportDone;
 
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
-
-class RamoController extends Controller
+class DeductibleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +24,7 @@ class RamoController extends Controller
     {
         if ($request->ajax()) {
 
-            $values = Ramo::withTrashed()->with(["type"])->where(function ($query) {
+            $values = Deductible::withTrashed()->where(function ($query) {
                             if (request()->has('search') && !is_array(request()->search)) {
                                 $query->where('name', 'like', "%" . request('search') . "%")
                                     ->orWhere('abbreviation', 'like', "%" . request('search') . "%");
@@ -38,8 +34,9 @@ class RamoController extends Controller
             return datatables()->of($values)->toJson();
         }
 
-        return view('config.ramo', ["title" => "Ramos"]);
+        return view('config.deductible', ["title" => "Deducibles"]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -66,7 +63,7 @@ class RamoController extends Controller
                 'errors' => $validator->messages(),
             ]);
         } else {
-            Ramo::create($request->all());
+            Deductible::create($request->all());
 
             return response()->json([
                 'status' => 200,
@@ -78,10 +75,10 @@ class RamoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ramo  $ramo
+     * @param  \App\Models\Deductible  $deductible
      * @return \Illuminate\Http\Response
      */
-    public function show(Ramo $ramo)
+    public function show(Deductible $deductible)
     {
         //
     }
@@ -89,10 +86,10 @@ class RamoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ramo  $ramo
+     * @param  \App\Models\Deductible  $deductible
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ramo $ramo)
+    public function edit(Deductible $deductible)
     {
         //
     }
@@ -101,12 +98,12 @@ class RamoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ramo  $ramo
+     * @param  \App\Models\Deductible  $deductible
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ramo $ramo)
+    public function update(Request $request, Deductible $deductible)
     {
-        $validator = $this->validator($request, $ramo->id);
+        $validator = $this->validator($request, $deductible->id);
         $error = $validator->errors();
         if ($error->first()) {
             return response()->json([
@@ -115,7 +112,7 @@ class RamoController extends Controller
             ]);
         } else {
             //codigo si no tiene error
-            Ramo::find($ramo->id)->update(request()->all());
+            Deductible::find($deductible->id)->update(request()->all());
 
             return response()->json([
                 'status' => 200,
@@ -127,12 +124,12 @@ class RamoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ramo  $ramo
+     * @param  \App\Models\Deductible  $deductible
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ramo $ramo)
+    public function destroy(Deductible $deductible)
     {
-        $deleted = $ramo->delete();
+        $deleted = $deductible->delete();
         if ($deleted) {
             return response()->json([
                 'status' => 200,
@@ -144,7 +141,7 @@ class RamoController extends Controller
     public function validator(Request $request, $id)
     {
         $rules = [
-            'name' => ['required',Rule::unique('ramos')->ignore($id),],
+            'name' => ['required',Rule::unique('deductibles')->ignore($id),],
             'abbreviation' => 'required|max:15',
         ];
 
@@ -161,82 +158,22 @@ class RamoController extends Controller
     }
 
     public function activate(Request $request){
-        $ramo = Ramo::withTrashed()->find($request->id);
-        $ramo->restore();
+        $deductible = Deductible::withTrashed()->find($request->id);
+        $deductible->restore();
     }
 
     public function export()
     {
-        $location = "Ramos";
+        $location = "Deducibles";
         $filename = $location.'_'.time() .'.xlsx';
         //creo la notificacion para cuando se recarga la pagina
         $data["json"] = '{"filename": "'.$filename.'", "location": "'.$location.'"}';
         $data["ready"] = false;
         $notification = request()->user()->notifications()->create($data);
         //coloco en fila la creacion del excel
-        (new RamoExport)->queue($filename);
+        (new DeductibleExport)->queue($filename);
         //creo una cola de la exportacion done....
         event(new ExportDone($notification->id, $filename, $location));
         return back()->withSuccess('Export started!');
     }
-
-    public function companies($id)
-    {
-        $ramo = Ramo::findOrFail($id);
-        $companies = Company::all()->map(function ($company) use ($ramo) {
-            return [
-                'id' => $company->id,
-                'name' => $company->name,
-                'checked' => $ramo->companies()->where('company_id', $company->id)->exists(),
-            ];
-        });
-
-        return response()->json($companies);
-    }
-
-    public function saveCompanies(Request $request)
-    {
-        $ramoId = $request->input('ramo_id');
-        $companyIds = $request->input('companies', []);
-
-        $now = Carbon::now();
-
-        // Obtener todas las relaciones actuales (incluyendo soft deleted)
-        $currentRelations = DB::table('company_ramo')
-            ->where('ramo_id', $ramoId)
-            ->get();
-
-        $currentCompanyIds = $currentRelations->pluck('company_id')->toArray();
-        $deletedCompanyIds = $currentRelations->whereNotNull('deleted_at')->pluck('company_id')->toArray();
-
-        // 1. Restaurar relaciones eliminadas (soft-deleted) si vienen marcadas
-        DB::table('company_ramo')
-            ->where('ramo_id', $ramoId)
-            ->whereIn('company_id', $companyIds)
-            ->whereNotNull('deleted_at')
-            ->update(['deleted_at' => null, 'updated_at' => $now]);
-
-        // 2. Crear nuevas relaciones si no existen
-        $newIds = array_diff($companyIds, $currentCompanyIds);
-        foreach ($newIds as $companyId) {
-            DB::table('company_ramo')->insert([
-                'company_id' => $companyId,
-                'ramo_id' => $ramoId,
-                'created_at' => $now,
-                'updated_at' => $now
-            ]);
-        }
-
-        // 3. Soft-deletear las que ya no vienen marcadas
-        $toDelete = array_diff($currentCompanyIds, $companyIds);
-        DB::table('company_ramo')
-            ->where('ramo_id', $ramoId)
-            ->whereIn('company_id', $toDelete)
-            ->whereNull('deleted_at') // solo las activas
-            ->update(['deleted_at' => $now]);
-
-        return response()->json(['status' => 200]);
-    }
-
-
 }

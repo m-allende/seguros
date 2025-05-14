@@ -46,4 +46,14 @@ class Company extends Model implements Auditable
     {
         return $this->morphOne(Photo::class, "parent");
     }
+
+    public function ramos()
+    {
+        return $this->belongsToMany(Ramo::class, 'company_ramo')
+                    ->withTimestamps()
+                    ->withPivot('deleted_at')
+                    ->wherePivotNull('deleted_at')
+                    ->whereNull('ramos.deleted_at'); // opcional: evita ramos eliminados
+    }
+
 }

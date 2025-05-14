@@ -15,6 +15,7 @@
     <div class="row layout-top-spacing">
 
         <!-- CONTENT HERE -->
+        @inject('menus', 'App\Models\Menu')
 
     </div>
 

@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .select2-container .select2-selection--single{
-    height: 38px !important;
+    height: 33px !important;
     border: 1px solid #bfc9d4;
 }
 
@@ -92,4 +92,21 @@ body.layout-dark .select2-container .select2-selection--multiple .select2-select
     height: 580px;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+
+.form-control.form-control-sm,
+.form-select.form-control-sm {
+    padding:5px 10px;
+    font-size:12px;
+}
+
+.form-group label,
+label {
+    font-size:13px;
+}
+
+.form-check-input:checked {
+    background-color: #4361ee !important;
+    border-color: #4361ee !important;
 }

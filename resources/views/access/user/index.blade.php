@@ -26,11 +26,11 @@
         <div class="card">
             <div class="col-header text-end mr-3">
                 <div class="btn-group  mt-3 me-3" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary btn-add">Agregar</button>
+                    <button type="button" class="btn btn-primary btn-add">@lang('translation.add')</button>
                     <div class="btn-group" role="group">
                         <button id="btnExport" type="button" class="btn btn-primary dropdown-toggle"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Exportar
+                            @lang('translation.export')
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-chevron-down">
@@ -54,12 +54,12 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" style="width: 10%">#</th>
-                                            <th>Nombre</th>
+                                            <th>@lang('translation.name')</th>
                                             <th>Descripción</th>
                                             <th>Email</th>
                                             <th>Rol</th>
-                                            <th style="width: 10%">Estado</th>
-                                            <th class="text-center dt-no-sorting w-25">Acciones</th>
+                                            <th style="width: 10%">@lang('translation.status')</th>
+                                            <th class="text-center dt-no-sorting w-25">@lang('translation.actions')</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -87,7 +87,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="name">Nombre</label>
+                                        <label for="name">@lang('translation.name')</label>
                                         <input type="text" name="name" class="form-control form-control-sm">
                                     </div>
                                 </div>
@@ -115,9 +115,10 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary btn-save">Guardar</button>
-                            <button type="button" class="btn btn-primary btn-update">Actualizar</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary btn-save">@lang('translation.save')</button>
+                            <button type="button" class="btn btn-primary btn-update">@lang('translation.update')</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">@lang('translation.close')</button>
                         </div>
                     </div>
                 </form>
@@ -201,7 +202,7 @@
                                 if (row.deleted_at == null) {
                                     if (row.roles[0].id != 1) {
                                         html +=
-                                            '<a class="btn-edit" data-toggle="tooltip" data-placement="top" title="Editar" href="#"><span class="shadow-none badge badge-primary">Editar</span></a>&nbsp;';
+                                            '<a class="btn-edit" data-toggle="tooltip" data-placement="top" title="Editar" href="#"><span class="shadow-none badge badge-primary">@lang('translation.edit')</span></a>&nbsp;';
                                     }
 
                                     html +=
@@ -212,14 +213,14 @@
                                         html +=
                                             '<a href="javascript:void(0);" class="bs-tooltip btn-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"  data-rowid="' +
                                             row.id +
-                                            '"><span class="shadow-none badge badge-danger">Eliminar</span></a>';
+                                            '"><span class="shadow-none badge badge-danger">@lang('translation.delete')</span></a>';
                                     }
 
                                 } else {
                                     html +=
                                         '<a href="javascript:void(0);" class="bs-tooltip btn-activate" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"  data-param1="' +
                                         row.id +
-                                        '"><span class="shadow-none badge badge-success">Activar</span></a>';
+                                        '"><span class="shadow-none badge badge-success">@lang('translation.activate')</span></a>';
                                 }
 
                                 html += '</div>';
@@ -230,7 +231,7 @@
                 }).on('processing.dt', function(e, settings, processing) {
                     if (processing) {
                         Swal.fire({
-                            title: "Favor Esperar",
+                            title: "@lang('translation.please-wait')",
                             timer: 1000000,
                             timerProgressBar: true,
                             showCloseButton: true,
@@ -332,10 +333,10 @@
                     if (!rowid) return;
 
                     Swal.fire({
-                        title: "Esta seguro de eliminar el registro?",
+                        title: "@lang('translation.question-delete')",
                         icon: "warning",
                         showCancelButton: true,
-                        confirmButtonText: "Si",
+                        confirmButtonText: "@lang('translation.yes')",
                         cancelButtonText: "No",
                         showCloseButton: true
                     }).then(function(result) {
@@ -363,7 +364,7 @@
                 $(document).on("click", '.export-excel',
                     function(event) {
                         Swal.fire({
-                            title: "Favor Esperar",
+                            title: "@lang('translation.please-wait')",
                             timer: 1000000,
                             timerProgressBar: true,
                             showCloseButton: true,
@@ -377,7 +378,7 @@
                             success: function(datos) {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: "El informe se desacargara en segundo plano, se avisara en la seccion de notificaciones",
+                                    title: "@lang('translation.warning-report-second-plane')",
                                     confirmButtonClass: 'btn btn-primary w-xs',
                                     buttonsStyling: false
                                 });
@@ -395,7 +396,7 @@
                             title: "¿Desea dejar Vigente este Usuario?",
                             icon: "warning",
                             showCancelButton: true,
-                            confirmButtonText: "Si",
+                            confirmButtonText: "@lang('translation.yes')",
                             cancelButtonText: "No",
                             showCloseButton: true
                         }).then(function(result) {

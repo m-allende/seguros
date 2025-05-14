@@ -37,26 +37,35 @@
         </div>
 
         <div class="card">
-            <div class="col-header text-end mr-3">
-                <div class="btn-group  mt-3 me-3" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary btn-add-person">Agregar</button>
-                    <div class="btn-group" role="group">
-                        <button id="btnExport" type="button" class="btn btn-primary dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Exportar
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-chevron-down">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnExport">
-                            <li><a class="dropdown-item export-excel-person" href="#">Excel</a></li>
-                            <li><a class="dropdown-item" href="#">PDF</a></li>
-                        </ul>
-                    </div>
+            <div class="row">
+                <!-- Botón Volver alineado a la izquierda -->
+                <div class="col d-flex align-items-start">
+                    <button type="button" class="btn btn-sm btn-secondary mt-3 ms-3" onclick="window.history.back();">
+                        @lang('translation.return')
+                    </button>
                 </div>
 
+                <!-- Botones Agregar y Exportar alineados a la derecha -->
+                <div class="col d-flex justify-content-end align-items-start">
+                    <div class="btn-group mt-3 me-3" role="group" aria-label="Botones de acción">
+                        <button type="button" class="btn btn-sm btn-primary btn-add">@lang('translation.add')</button>
+                        <div class="btn-group" role="group">
+                            <button id="btnExport" type="button" class="btn btn-sm btn-primary dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                @lang('translation.export')
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-down">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnExport">
+                                <li><a class="dropdown-item export-excel" href="#">Excel</a></li>
+                                <li><a class="dropdown-item" href="#">PDF</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="row layout-spacing">
@@ -68,10 +77,10 @@
                                         <tr>
                                             <th class="text-center" style="width: 10%">#</th>
                                             <th>RUT</th>
-                                            <th>Nombre</th>
+                                            <th>@lang('translation.name')</th>
                                             <th>Abr.</th>
-                                            <th style="width: 10%">Estado</th>
-                                            <th class="text-center dt-no-sorting w-25">Acciones</th>
+                                            <th style="width: 10%">@lang('translation.status')</th>
+                                            <th class="text-center dt-no-sorting w-25">@lang('translation.actions')</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -96,9 +105,11 @@
                         @include('modals.person', ['add' => true])
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-sm btn-primary btn-save-person">Guardar</button>
-                        <button type="button" class="btn btn-sm btn-primary btn-update-person">Actualizar</button>
-                        <button type="button" class="btn btn-sm btn-secondary close-modal-person">Cerrar</button>
+                        <button type="button" class="btn btn-sm btn-primary btn-save-person">@lang('translation.save')</button>
+                        <button type="button"
+                            class="btn btn-sm btn-primary btn-update-person">@lang('translation.update')</button>
+                        <button type="button"
+                            class="btn btn-sm btn-secondary close-modal-person">@lang('translation.close')</button>
                     </div>
                 </div>
             </div>
@@ -164,17 +175,17 @@
                                 html = '<div class="form-group">';
                                 if (row.deleted_at == null) {
                                     html +=
-                                        '<a class="btn-edit-person" data-toggle="tooltip" data-placement="top" title="Editar" href="#"><span class="shadow-none badge badge-primary">Editar</span></a>&nbsp;';
+                                        '<a class="btn-edit-person" data-toggle="tooltip" data-placement="top" title="Editar" href="#"><span class="shadow-none badge badge-primary">@lang('translation.edit')</span></a>&nbsp;';
 
                                     html +=
                                         '<a href="javascript:void(0);" class="bs-tooltip btn-delete-person" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"  data-rowid="' +
                                         row.id +
-                                        '"><span class="shadow-none badge badge-danger">Eliminar</span></a>';
+                                        '"><span class="shadow-none badge badge-danger">@lang('translation.delete')</span></a>';
                                 } else {
                                     html +=
                                         '<a href="javascript:void(0);" class="bs-tooltip btn-activate-person" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"  data-param1="' +
                                         row.id +
-                                        '"><span class="shadow-none badge badge-success">Activar</span></a>';
+                                        '"><span class="shadow-none badge badge-success">@lang('translation.activate')</span></a>';
                                 }
 
                                 html += '</div>';
@@ -185,7 +196,7 @@
                 }).on('processing.dt', function(e, settings, processing) {
                     if (processing) {
                         Swal.fire({
-                            title: "Favor Esperar",
+                            title: "@lang('translation.please-wait')",
                             timer: 1000000,
                             timerProgressBar: true,
                             showCloseButton: true,

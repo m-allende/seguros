@@ -25,7 +25,7 @@
 </div>
 <script>
     $(".select2-person-item").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;

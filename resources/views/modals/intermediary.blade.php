@@ -50,7 +50,7 @@
         </div>
         <div class="col-6">
             <div class="form-group">
-                <label for="type_id">Tipo</label>
+                <label for="type_id">@lang('translation.type')</label>
                 <select name="type_id" id="type_id"
                     class="form-select form-control form-control-sm select2-type-intermediary w-100">
                     @if ($type_id != 0)
@@ -150,7 +150,7 @@
     <hr>
     <div class="row">
         <div class="col-9">
-            <h6>Emails</h6>
+            <h6>@lang('translation.emails')</h6>
         </div>
         <div class="col-3">
             <button type="button" data-cont="0" class="btn btn-sm btn-primary btn-add-email">Agregar
@@ -163,7 +163,7 @@
     <hr>
     <div class="row">
         <div class="col-9">
-            <h6>Telefonos</h6>
+            <h6>@lang('translation.phones')</h6>
         </div>
         <div class="col-3">
             <button type="button" data-cont="0" class="btn btn-sm btn-primary btn-add-phone">Agregar

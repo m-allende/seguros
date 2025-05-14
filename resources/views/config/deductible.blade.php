@@ -53,6 +53,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="card-body">
                 <div class="row layout-spacing">
                     <div class="col-lg-12">
@@ -117,7 +118,7 @@
             $(document).on('click', '.btn-add', function() {
                 $('.modal').modal("show")
                 $('.form').trigger('reset')
-                $('.modal').find('.modal-title').text('Agregar nueva Región')
+                $('.modal').find('.modal-title').text('Agregar nuevo Deducible')
                 $('.btn-save').show();
                 $('.btn-update').hide()
             })
@@ -129,7 +130,7 @@
                     btnUpdate = $('.btn-update');
 
                 let table = $('#crud').DataTable({
-                    ajax: '/config/color',
+                    ajax: '/config/deductible',
                     serverSide: true,
                     processing: true,
                     aaSorting: [
@@ -224,7 +225,7 @@
                     console.log(data)
                     $.ajax({
                         type: "POST",
-                        url: "{{ route('color.store') }}",
+                        url: "{{ route('deductible.store') }}",
                         data: data,
                         success: function(data) {
                             if (data.status == 200) {
@@ -251,7 +252,7 @@
                     btnSave.hide();
                     btnUpdate.show();
 
-                    modal.find('.modal-title').text('Modificar Color')
+                    modal.find('.modal-title').text('Modificar Deducible')
                     modal.find('.modal-footer button[type="submit"]').text('Modificar')
 
                     let rowData = table.row($(this).parents('tr')).data()
@@ -259,6 +260,7 @@
                     form.find('input[name="id"]').val(rowData.id)
                     form.find('input[name="name"]').val(rowData.name)
                     form.find('input[name="abbreviation"]').val(rowData.abbreviation)
+
                     modal.modal("show")
                 })
 
@@ -267,7 +269,7 @@
                     let updateId = form.find('input[name="id"]').val();
                     $.ajax({
                         type: "POST",
-                        url: "/config/color/" + updateId,
+                        url: "/config/deductible/" + updateId,
                         data: formData,
                         success: function(data) {
                             if (data.status == 200) {
@@ -307,7 +309,7 @@
                             $.ajax({
                                 type: "POST",
                                 dataType: 'JSON',
-                                url: "/config/color/" + rowid,
+                                url: "/config/deductible/" + rowid,
                                 data: {
                                     _method: 'delete',
                                     _token: token
@@ -337,7 +339,7 @@
                         });
                         $.ajax({
                             type: "GET",
-                            url: "{{ route('color.export') }}",
+                            url: "{{ route('deductible.export') }}",
                             success: function(datos) {
                                 Swal.fire({
                                     icon: 'success',
@@ -356,7 +358,7 @@
                         let id = $(this).data("param1");
 
                         Swal.fire({
-                            title: "¿Desea dejar Vigente esta región?",
+                            title: "¿Desea dejar Vigente este Deducible?",
                             icon: "warning",
                             showCancelButton: true,
                             confirmButtonText: "@lang('translation.yes')",
@@ -366,7 +368,7 @@
                             if (result.value) {
                                 $.ajax({
                                     type: "POST",
-                                    url: "/config/color/activate",
+                                    url: "/config/deductible/activate",
                                     data: "id=" + id,
                                     success: function(datos) {
                                         table.draw();

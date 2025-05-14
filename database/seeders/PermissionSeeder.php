@@ -16,7 +16,7 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-
+        /*
         $modules = [
             "config" => [
                 "company",
@@ -44,5 +44,6 @@ class PermissionSeeder extends Seeder
                 }
             }
         }
+        */
     }
 }

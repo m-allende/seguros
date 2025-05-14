@@ -23,26 +23,35 @@
         </div>
 
         <div class="card">
-            <div class="col-header text-end mr-3">
-                <div class="btn-group  mt-3 me-3" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary btn-add">Agregar</button>
-                    <div class="btn-group" role="group">
-                        <button id="btnExport" type="button" class="btn btn-primary dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Exportar
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-chevron-down">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnExport">
-                            <li><a class="dropdown-item export-excel" href="#">Excel</a></li>
-                            <li><a class="dropdown-item" href="#">PDF</a></li>
-                        </ul>
-                    </div>
+            <div class="row">
+                <!-- Botón Volver alineado a la izquierda -->
+                <div class="col d-flex align-items-start">
+                    <button type="button" class="btn btn-sm btn-secondary mt-3 ms-3" onclick="window.history.back();">
+                        @lang('translation.return')
+                    </button>
                 </div>
 
+                <!-- Botones Agregar y Exportar alineados a la derecha -->
+                <div class="col d-flex justify-content-end align-items-start">
+                    <div class="btn-group mt-3 me-3" role="group" aria-label="Botones de acción">
+                        <button type="button" class="btn btn-sm btn-primary btn-add">@lang('translation.add')</button>
+                        <div class="btn-group" role="group">
+                            <button id="btnExport" type="button" class="btn btn-sm btn-primary dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                @lang('translation.export')
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-chevron-down">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnExport">
+                                <li><a class="dropdown-item export-excel" href="#">Excel</a></li>
+                                <li><a class="dropdown-item" href="#">PDF</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="row layout-spacing">
@@ -54,10 +63,10 @@
                                         <tr>
                                             <th class="text-center" style="width: 10%">#</th>
                                             <th>Marca</th>
-                                            <th>Nombre</th>
+                                            <th>@lang('translation.name')</th>
                                             <th>Abr.</th>
-                                            <th style="width: 10%">Estado</th>
-                                            <th class="text-center dt-no-sorting w-25">Acciones</th>
+                                            <th style="width: 10%">@lang('translation.status')</th>
+                                            <th class="text-center dt-no-sorting w-25">@lang('translation.actions')</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -89,7 +98,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="name">Nombre</label>
+                                <label for="name">@lang('translation.name')</label>
                                 <input type="text" name="name" class="form-control form-control-sm">
                             </div>
                             <div class="form-group">
@@ -98,9 +107,10 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary btn-save">Guardar</button>
-                            <button type="button" class="btn btn-primary btn-update">Actualizar</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-sm btn-primary btn-save">@lang('translation.save')</button>
+                            <button type="button" class="btn btn-sm btn-primary btn-update">@lang('translation.update')</button>
+                            <button type="button" class="btn btn-sm btn-secondary"
+                                data-bs-dismiss="modal">@lang('translation.close')</button>
                         </div>
                     </div>
                 </form>
@@ -120,12 +130,12 @@
             })
 
             $(document).ready(function() {
-                var modal = $('.modal');
-                var form = $('.form');
-                var btnSave = $('.btn-save'),
+                let modal = $('.modal');
+                let form = $('.form');
+                let btnSave = $('.btn-save'),
                     btnUpdate = $('.btn-update');
 
-                var table = $('#crud').DataTable({
+                let table = $('#crud').DataTable({
                     ajax: '/config/modelvehicle',
                     serverSide: true,
                     processing: true,
@@ -176,17 +186,17 @@
                                 html = '<div class="form-group">';
                                 if (row.deleted_at == null) {
                                     html +=
-                                        '<a class="btn-edit" data-toggle="tooltip" data-placement="top" title="Editar" href="#"><span class="shadow-none badge badge-primary">Editar</span></a>&nbsp;';
+                                        '<a class="btn-edit" data-toggle="tooltip" data-placement="top" title="Editar" href="#"><span class="shadow-none badge badge-primary">@lang('translation.edit')</span></a>&nbsp;';
 
                                     html +=
                                         '<a href="javascript:void(0);" class="bs-tooltip btn-delete" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"  data-rowid="' +
                                         row.id +
-                                        '"><span class="shadow-none badge badge-danger">Eliminar</span></a>';
+                                        '"><span class="shadow-none badge badge-danger">@lang('translation.delete')</span></a>';
                                 } else {
                                     html +=
                                         '<a href="javascript:void(0);" class="bs-tooltip btn-activate" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"  data-param1="' +
                                         row.id +
-                                        '"><span class="shadow-none badge badge-success">Activar</span></a>';
+                                        '"><span class="shadow-none badge badge-success">@lang('translation.activate')</span></a>';
                                 }
 
                                 html += '</div>';
@@ -197,7 +207,7 @@
                 }).on('processing.dt', function(e, settings, processing) {
                     if (processing) {
                         Swal.fire({
-                            title: "Favor Esperar",
+                            title: "@lang('translation.please-wait')",
                             timer: 1000000,
                             timerProgressBar: true,
                             showCloseButton: true,
@@ -218,7 +228,7 @@
 
                 btnSave.click(function(e) {
                     e.preventDefault();
-                    var data = form.serialize()
+                    let data = form.serialize()
                     console.log(data)
                     $.ajax({
                         type: "POST",
@@ -230,7 +240,7 @@
                                 form.trigger("reset");
                                 modal.modal('hide');
                             } else {
-                                var error = '';
+                                let error = '';
                                 $.each(data.errors, function(key, err_values) {
                                     error += err_values
                                     error += '<br>';
@@ -252,21 +262,21 @@
                     modal.find('.modal-title').text('Modificar Modelo')
                     modal.find('.modal-footer button[type="submit"]').text('Modificar')
 
-                    var rowData = table.row($(this).parents('tr')).data()
+                    let rowData = table.row($(this).parents('tr')).data()
 
                     form.find('input[name="id"]').val(rowData.id)
                     form.find('input[name="name"]').val(rowData.name)
                     form.find('input[name="abbreviation"]').val(rowData.abbreviation)
 
-                    var newOption = new Option(rowData.branch.name, rowData.branch.id, true, true);
+                    let newOption = new Option(rowData.branch.name, rowData.branch.id, true, true);
                     $('.select2-branch-modal').append(newOption).trigger('change');
 
                     modal.modal("show")
                 })
 
                 btnUpdate.click(function() {
-                    var formData = form.serialize() + '&_method=PUT'
-                    var updateId = form.find('input[name="id"]').val();
+                    let formData = form.serialize() + '&_method=PUT'
+                    let updateId = form.find('input[name="id"]').val();
                     $.ajax({
                         type: "POST",
                         url: "/config/modelvehicle/" + updateId,
@@ -276,7 +286,7 @@
                                 table.draw();
                                 modal.modal('hide');
                             } else {
-                                var error = '';
+                                let error = '';
                                 $.each(data.errors, function(key, err_values) {
                                     error += err_values
                                     error += '<br>';
@@ -292,16 +302,16 @@
 
 
                 $(document).on('click', '.btn-delete', function() {
-                    var rowid = $(this).data('rowid')
-                    var el = $(this)
-                    var token = $("_token").val()
+                    let rowid = $(this).data('rowid')
+                    let el = $(this)
+                    let token = $("_token").val()
                     if (!rowid) return;
 
                     Swal.fire({
-                        title: "Esta seguro de eliminar el registro?",
+                        title: "@lang('translation.question-delete')",
                         icon: "warning",
                         showCancelButton: true,
-                        confirmButtonText: "Si",
+                        confirmButtonText: "@lang('translation.yes')",
                         cancelButtonText: "No",
                         showCloseButton: true
                     }).then(function(result) {
@@ -329,7 +339,7 @@
                 $(document).on("click", '.export-excel',
                     function(event) {
                         Swal.fire({
-                            title: "Favor Esperar",
+                            title: "@lang('translation.please-wait')",
                             timer: 1000000,
                             timerProgressBar: true,
                             showCloseButton: true,
@@ -343,8 +353,8 @@
                             success: function(datos) {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: "El informe se desacargara en segundo plano, se avisara en la seccion de notificaciones",
-                                    confirmButtonClass: 'btn btn-primary w-xs',
+                                    title: "@lang('translation.warning-report-second-plane')",
+                                    confirmButtonClass: 'btn btn-sm btn-primary w-xs',
                                     buttonsStyling: false
                                 });
                             },
@@ -355,13 +365,13 @@
                     });
                 $(document).on("click", '.btn-activate',
                     function(event) {
-                        var id = $(this).data("param1");
+                        let id = $(this).data("param1");
 
                         Swal.fire({
                             title: "¿Desea dejar Vigente este Modelo?",
                             icon: "warning",
                             showCancelButton: true,
-                            confirmButtonText: "Si",
+                            confirmButtonText: "@lang('translation.yes')",
                             cancelButtonText: "No",
                             showCloseButton: true
                         }).then(function(result) {

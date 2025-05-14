@@ -25,11 +25,11 @@
         <div class="card">
             <div class="col-header text-end mr-3">
                 <div class="btn-group  mt-3 me-3" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary btn-add">Agregar</button>
+                    <button type="button" class="btn btn-primary btn-add">@lang('translation.add')</button>
                     <div class="btn-group" role="group">
                         <button id="btnExport" type="button" class="btn btn-primary dropdown-toggle"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Exportar
+                            @lang('translation.export')
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-chevron-down">
@@ -53,8 +53,8 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" style="width: 10%">#</th>
-                                            <th>Nombre</th>
-                                            <th class="text-center dt-no-sorting w-25">Acciones</th>
+                                            <th>@lang('translation.name')</th>
+                                            <th class="text-center dt-no-sorting w-25">@lang('translation.actions')</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -80,14 +80,15 @@
                             <input type="hidden" name="id">
                             @csrf
                             <div class="form-group">
-                                <label for="name">Nombre</label>
+                                <label for="name">@lang('translation.name')</label>
                                 <input type="text" name="name" class="form-control input-sm">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary btn-save">Guardar</button>
-                            <button type="button" class="btn btn-primary btn-update">Actualizar</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary btn-save">@lang('translation.save')</button>
+                            <button type="button" class="btn btn-primary btn-update">@lang('translation.update')</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">@lang('translation.close')</button>
                         </div>
                     </div>
                 </form>
@@ -140,7 +141,7 @@
                             render: function(data, type, row) {
                                 html = '<div class="form-group">';
                                 html +=
-                                    '<a class="btn-edit" data-toggle="tooltip" data-placement="top" title="Editar" href="#"><span class="shadow-none badge badge-primary">Editar</span></a>&nbsp;';
+                                    '<a class="btn-edit" data-toggle="tooltip" data-placement="top" title="Editar" href="#"><span class="shadow-none badge badge-primary">@lang('translation.edit')</span></a>&nbsp;';
                                 html +=
                                     '<a class="" data-toggle="tooltip" data-placement="top" title="Permisos" href="/access/role/' +
                                     data +
@@ -153,7 +154,7 @@
                 }).on('processing.dt', function(e, settings, processing) {
                     if (processing) {
                         Swal.fire({
-                            title: "Favor Esperar",
+                            title: "@lang('translation.please-wait')",
                             timer: 1000000,
                             timerProgressBar: true,
                             showCloseButton: true,
@@ -244,7 +245,7 @@
                 $(document).on("click", '.export-excel',
                     function(event) {
                         Swal.fire({
-                            title: "Favor Esperar",
+                            title: "@lang('translation.please-wait')",
                             timer: 1000000,
                             timerProgressBar: true,
                             showCloseButton: true,
@@ -258,7 +259,7 @@
                             success: function(datos) {
                                 Swal.fire({
                                     icon: 'success',
-                                    title: "El informe se desacargara en segundo plano, se avisara en la seccion de notificaciones",
+                                    title: "@lang('translation.warning-report-second-plane')",
                                     confirmButtonClass: 'btn btn-primary w-xs',
                                     buttonsStyling: false
                                 });

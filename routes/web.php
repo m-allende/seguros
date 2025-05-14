@@ -15,11 +15,17 @@ use Illuminate\Support\Facades\Auth;
 
 require_once 'theme-routes.php';
 Auth::routes();
+//Language Translation
+Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
 
 Route::group(
     ['middleware' => 'auth'],
     function () {
         Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
+
+        Route::get('/config/principal', function () {
+            return view('config.principal');
+        });
 
         Route::resource('/coti', App\Http\Controllers\CotizacionController::class);
         Route::resource('/item', App\Http\Controllers\ItemController::class);
@@ -46,11 +52,17 @@ Route::group(
 
         Route::get('/config/ramo/export', [App\Http\Controllers\RamoController::class, 'export'])->name("ramo.export");
         Route::post("/config/ramo/activate", [App\Http\Controllers\RamoController::class, 'activate'])->name("ramo.activate");
+        Route::get('/config/ramo/{id}/companies', [App\Http\Controllers\RamoController::class, 'companies']);
+        Route::post('/config/ramo/companies/save', [App\Http\Controllers\RamoController::class, 'saveCompanies']);
         Route::resource('/config/ramo', App\Http\Controllers\RamoController::class);
 
         Route::get('/config/cobertura/export', [App\Http\Controllers\CoberturaController::class, 'export'])->name("cobertura.export");
         Route::post("/config/cobertura/activate", [App\Http\Controllers\CoberturaController::class, 'activate'])->name("cobertura.activate");
         Route::resource('/config/cobertura', App\Http\Controllers\CoberturaController::class);
+
+        Route::get('/config/deductible/export', [App\Http\Controllers\DeductibleController::class, 'export'])->name("deductible.export");
+        Route::post("/config/deductible/activate", [App\Http\Controllers\DeductibleController::class, 'activate'])->name("deductible.activate");
+        Route::resource('/config/deductible', App\Http\Controllers\DeductibleController::class);
 
         Route::get('/config/coin/export', [App\Http\Controllers\CoinController::class, 'export'])->name("coin.export");
         Route::post("/config/coin/activate", [App\Http\Controllers\CoinController::class, 'activate'])->name("coin.activate");

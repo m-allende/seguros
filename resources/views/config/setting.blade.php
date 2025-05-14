@@ -82,7 +82,7 @@
         <script>
             $('.btn-save').click(function(e) {
                 e.preventDefault();
-                var data = $('.form').serialize()
+                let data = $('.form').serialize()
                 console.log(data)
                 $.ajax({
                     type: "POST",
@@ -93,11 +93,11 @@
                             Swal.fire({
                                 icon: 'success',
                                 title: "Grabado Correctamente",
-                                confirmButtonClass: 'btn btn-primary w-xs',
+                                confirmButtonClass: 'btn btn-sm btn-primary w-xs',
                                 buttonsStyling: false
                             });
                         } else {
-                            var error = '';
+                            let error = '';
                             $.each(data.errors, function(key, err_values) {
                                 error += err_values
                                 error += '<br>';

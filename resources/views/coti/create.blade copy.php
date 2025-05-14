@@ -447,9 +447,9 @@
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="optionTypePerson" id="optionTypePerson" value="">
-                        <button type="button" class="btn btn-sm btn-primary btn-save-person">Guardar</button>
-                        <button type="button" class="btn btn-sm btn-primary btn-update-person">Actualizar</button>
-                        <button type="button" class="btn btn-sm btn-secondary close-modal-person">Cerrar</button>
+                        <button type="button" class="btn btn-sm btn-primary btn-save-person">@lang('translation.save')</button>
+                        <button type="button" class="btn btn-sm btn-primary btn-update-person">@lang('translation.update')</button>
+                        <button type="button" class="btn btn-sm btn-secondary close-modal-person">@lang('translation.close')</button>
                     </div>
                 </div>
             </div>
@@ -463,7 +463,7 @@
         <script src="{{ asset('plugins/input-mask/jquery.inputmask.bundle.min.js') }}"></script>
         <script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
         <script>
-            var table = $('#items').DataTable({
+            let table = $('#items').DataTable({
                 language: {
                     url: "{{ asset('plugins/table/datatable/es-ES.json') }}",
                 },

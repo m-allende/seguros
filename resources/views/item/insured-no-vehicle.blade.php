@@ -106,7 +106,7 @@
 </div>
 <script>
     $(".select2-type-no-vehicle-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;
@@ -144,7 +144,7 @@
     });
 
     $(".select2-region-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;
@@ -182,7 +182,7 @@
     });
 
     $(".select2-city-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;
@@ -221,7 +221,7 @@
     });
 
     $(".select2-commune-modal").select2({
-        placeholder: "Seleccione...",
+        placeholder: "@lang('translation.select-option')",
         dropdownParent: $("#modal-item"),
         escapeMarkup: function(markup) {
             return markup;

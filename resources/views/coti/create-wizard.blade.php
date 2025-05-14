@@ -285,9 +285,12 @@
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="optionTypePerson" id="optionTypePerson" value="">
-                        <button type="button" class="btn btn-sm btn-primary btn-save-person">Guardar</button>
-                        <button type="button" class="btn btn-sm btn-primary btn-update-person">Actualizar</button>
-                        <button type="button" class="btn btn-sm btn-primary close-modal-person">Cerrar</button>
+                        <button type="button"
+                            class="btn btn-sm btn-primary btn-save-person">@lang('translation.save')</button>
+                        <button type="button"
+                            class="btn btn-sm btn-primary btn-update-person">@lang('translation.update')</button>
+                        <button type="button"
+                            class="btn btn-sm btn-primary close-modal-person">@lang('translation.close')</button>
                     </div>
                 </div>
             </div>
@@ -311,12 +314,12 @@
             });
             $("#cotiAccordion").hide();
 
-            var v_stepperWizardIcon = document.querySelector('.stepper-vertical-icons');
-            var v_stepperIcon = new Stepper(v_stepperWizardIcon, {
+            let v_stepperWizardIcon = document.querySelector('.stepper-vertical-icons');
+            let v_stepperIcon = new Stepper(v_stepperWizardIcon, {
                 animation: true
             })
-            var v_stepperNextButtonIcon = v_stepperWizardIcon.querySelectorAll('.btn-nxt');
-            var v_stepperPrevButtonIcon = v_stepperWizardIcon.querySelectorAll('.btn-prev');
+            let v_stepperNextButtonIcon = v_stepperWizardIcon.querySelectorAll('.btn-nxt');
+            let v_stepperPrevButtonIcon = v_stepperWizardIcon.querySelectorAll('.btn-prev');
 
             v_stepperNextButtonIcon.forEach(element => {
                 element.addEventListener('click', function() {

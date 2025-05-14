@@ -15,7 +15,7 @@
         birthdate = flatpickr("#birthdate", config_flatpickr);
 
         $("#type_id").select2({
-            placeholder: "Seleccione...",
+            placeholder: "@lang('translation.select-option')",
             dropdownParent: $('#modal-person'),
             escapeMarkup: function(markup) {
                 return markup;
@@ -53,7 +53,7 @@
             },
         });
         $("#marital_status_id").select2({
-            placeholder: "Seleccione...",
+            placeholder: "@lang('translation.select-option')",
             dropdownParent: $('#modal-person'),
             escapeMarkup: function(markup) {
                 return markup;
@@ -91,7 +91,7 @@
             },
         });
         $("#gender_id").select2({
-            placeholder: "Seleccione...",
+            placeholder: "@lang('translation.select-option')",
             dropdownParent: $('#modal-person'),
             escapeMarkup: function(markup) {
                 return markup;
@@ -191,7 +191,7 @@
         }
 
         $("#type_id").select2({
-            placeholder: "Seleccione...",
+            placeholder: "@lang('translation.select-option')",
             dropdownParent: $('#modal-person'),
             escapeMarkup: function(markup) {
                 return markup;
@@ -243,7 +243,7 @@
         changeTypePerson(rowData.type.usage);
 
         $("#marital_status_id").select2({
-            placeholder: "Seleccione...",
+            placeholder: "@lang('translation.select-option')",
             dropdownParent: $('#modal-person'),
             escapeMarkup: function(markup) {
                 return markup;
@@ -293,7 +293,7 @@
         }
 
         $("#gender_id").select2({
-            placeholder: "Seleccione...",
+            placeholder: "@lang('translation.select-option')",
             dropdownParent: $('#modal-person'),
             escapeMarkup: function(markup) {
                 return markup;
@@ -387,10 +387,10 @@
         if (!rowid) return;
 
         Swal.fire({
-            title: "Esta seguro de eliminar el registro?",
+            title: "@lang('translation.question-delete')",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Si",
+            confirmButtonText: "@lang('translation.yes')",
             cancelButtonText: "No",
             showCloseButton: true
         }).then(function(result) {
@@ -417,7 +417,7 @@
 
     $(document).on("click", '.export-excel-person', function(e) {
         Swal.fire({
-            title: "Favor Esperar",
+            title: "@lang('translation.please-wait')",
             timer: 1000000,
             timerProgressBar: true,
             showCloseButton: true,
@@ -431,7 +431,8 @@
             success: function(datos) {
                 Swal.fire({
                     icon: 'success',
-                    title: "El informe se desacargara en segundo plano, se avisara en la seccion de notificaciones",
+                    title: title: "@lang('translation.warning-report-second-plane')",
+                    ,
                     confirmButtonClass: 'btn btn-primary w-xs',
                     buttonsStyling: false
                 });
@@ -449,7 +450,7 @@
             title: "¿Desea dejar Vigente este Participante?",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Si",
+            confirmButtonText: "@lang('translation.yes')",
             cancelButtonText: "No",
             showCloseButton: true
         }).then(function(result) {

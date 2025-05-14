@@ -252,7 +252,7 @@
                                                             <div class="col-md-12 mt-1">
                                                                 <div class="form-group text-end">
                                                                     <button
-                                                                        class="btn btn-secondary btn-save">Guardar</button>
+                                                                        class="btn btn-secondary btn-save">@lang('translation.save')</button>
                                                                 </div>
                                                             </div>
 
@@ -358,7 +358,8 @@
                                                 </div>
                                                 <div class="col-md-12 mt-1">
                                                     <div class="form-group text-end">
-                                                        <button class="btn btn-secondary btn-save">Guardar</button>
+                                                        <button
+                                                            class="btn btn-secondary btn-save">@lang('translation.save')</button>
                                                         <input type="hidden" name="where" value="social">
                                                     </div>
                                                 </div>
@@ -439,7 +440,7 @@
                                                                     <input type="hidden" name="where"
                                                                         value="laboral">
                                                                     <button
-                                                                        class="btn btn-secondary btn-save">Guardar</button>
+                                                                        class="btn btn-secondary btn-save">@lang('translation.save')</button>
                                                                 </div>
                                                             </div>
                                                         </div>

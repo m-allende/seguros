@@ -1,7 +1,7 @@
 <x-base-layout :scrollspy="true">
 
     <x-slot:pageTitle>
-        {{$title}} 
+        {{$title}}
     </x-slot>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -17,7 +17,7 @@
     <x-slot:scrollspyConfig>
         data-bs-spy="scroll" data-bs-target="#navSection" data-bs-offset="100"
     </x-slot>
-    
+
     <!-- BREADCRUMB -->
     <div class="page-meta">
         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
@@ -48,7 +48,7 @@
                 <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Apex (Simple)</h4> 
+                            <h4>Apex (Simple)</h4>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div id="s-line" class=""></div>
 
                     <div class="code-section-container show-code">
-                                
+
                         <button class="btn toggle-code-snippet"><span>Code</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-code-icon"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 
                         <div class="code-section text-left">
@@ -111,10 +111,10 @@ chart.render();</pre>
 
         <div id="chartArea" class="col-xl-12 layout-spacing">
             <div class="statbox widget box box-shadow">
-                <div class="widget-header">                                
+                <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Simple Area</h4> 
+                            <h4>Simple Area</h4>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ chart.render();</pre>
                     <div id="s-line-area" class=""></div>
 
                     <div class="code-section-container">
-                                
+
                         <button class="btn toggle-code-snippet"><span>Code</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-code-icon"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 
                         <div class="code-section text-left">
@@ -151,7 +151,7 @@ data: [11, 32, 45, 32, 34, 52, 41]
 
 xaxis: {
 type: 'datetime',
-categories: ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00", "2018-09-19T04:30:00", "2018-09-19T05:30:00", "2018-09-19T06:30:00"],                
+categories: ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00", "2018-09-19T04:30:00", "2018-09-19T05:30:00", "2018-09-19T06:30:00"],
 },
 tooltip: {
 x: {
@@ -174,10 +174,10 @@ chart.render();</pre>
 
         <div id="chartColumn" class="col-xl-12 layout-spacing">
             <div class="statbox widget box box-shadow">
-                <div class="widget-header">                                
+                <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Simple Column</h4> 
+                            <h4>Simple Column</h4>
                         </div>
                     </div>
                 </div>
@@ -185,7 +185,7 @@ chart.render();</pre>
                     <div id="s-col" class=""></div>
 
                     <div class="code-section-container">
-                                
+
                         <button class="btn toggle-code-snippet"><span>Code</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-code-icon"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 
                         <div class="code-section text-left">
@@ -202,7 +202,7 @@ plotOptions: {
 bar: {
 horizontal: false,
 columnWidth: '55%',
-endingShape: 'rounded'  
+endingShape: 'rounded'
 },
 },
 dataLabels: {
@@ -256,10 +256,10 @@ chart.render();
 
         <div id="chartColumnStacked" class="col-xl-12 layout-spacing">
             <div class="statbox widget box box-shadow">
-                <div class="widget-header">                                
+                <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Simple Column Stacked</h4> 
+                            <h4>Simple Column Stacked</h4>
                         </div>
                     </div>
                 </div>
@@ -267,7 +267,7 @@ chart.render();
                     <div id="s-col-stacked" class=""></div>
 
                     <div class="code-section-container">
-                                
+
                         <button class="btn toggle-code-snippet"><span>Code</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-code-icon"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 
                         <div class="code-section text-left">
@@ -336,10 +336,10 @@ chart.render();</pre>
 
         <div id="chartBar" class="col-xl-12 layout-spacing">
             <div class="statbox widget box box-shadow">
-                <div class="widget-header">                                
+                <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Simple Bar</h4> 
+                            <h4>Simple Bar</h4>
                         </div>
                     </div>
                 </div>
@@ -347,7 +347,7 @@ chart.render();</pre>
                     <div id="s-bar" class=""></div>
 
                     <div class="code-section-container">
-                                
+
                         <button class="btn toggle-code-snippet"><span>Code</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-code-icon"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 
                         <div class="code-section text-left">
@@ -390,10 +390,10 @@ chart.render();</pre>
 
         <div id="chartMixed" class="col-xl-12 layout-spacing">
             <div class="statbox widget box box-shadow">
-                <div class="widget-header">                                
+                <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Mixed</h4> 
+                            <h4>Mixed</h4>
                         </div>
                     </div>
                 </div>
@@ -401,7 +401,7 @@ chart.render();</pre>
                     <div id="mixed-chart" class=""></div>
 
                     <div class="code-section-container">
-                                
+
                         <button class="btn toggle-code-snippet"><span>Code</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-code-icon"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 
                         <div class="code-section text-left">
@@ -461,10 +461,10 @@ chart.render();</pre>
 
         <div id="chartDonut" class="col-xl-12 layout-spacing">
             <div class="statbox widget box box-shadow">
-                <div class="widget-header">                                
+                <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Donut</h4> 
+                            <h4>Donut</h4>
                         </div>
                     </div>
                 </div>
@@ -472,7 +472,7 @@ chart.render();</pre>
                     <div id="donut-chart" class=""></div>
 
                     <div class="code-section-container">
-                                
+
                         <button class="btn toggle-code-snippet"><span>Code</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-code-icon"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 
                         <div class="code-section text-left">
@@ -513,10 +513,10 @@ donut.render();</pre>
 
         <div id="chartRadial" class="col-xl-12 layout-spacing">
             <div class="statbox widget box box-shadow">
-                <div class="widget-header">                                
+                <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Radial</h4> 
+                            <h4>Radial</h4>
                         </div>
                     </div>
                 </div>
@@ -524,7 +524,7 @@ donut.render();</pre>
                     <div id="radial-chart" class=""></div>
 
                     <div class="code-section-container">
-                                
+
                         <button class="btn toggle-code-snippet"><span>Code</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down toggle-code-icon"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
 
                         <div class="code-section text-left">
@@ -558,7 +558,7 @@ total: {
 }
 },
 series: [44, 55, 67, 83],
-labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],    
+labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
 }
 
 var chart = new ApexCharts(
@@ -575,7 +575,7 @@ chart.render();</pre>
 
     </div>
 
-    
+
     <!--  BEGIN CUSTOM SCRIPTS FILE  -->
     <x-slot:footerFiles>
         <script src="{{asset('plugins/apex/apexcharts.min.js')}}"></script>
